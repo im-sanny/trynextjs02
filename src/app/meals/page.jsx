@@ -2,6 +2,11 @@ import Meals from '@/components/Meals';
 import React from 'react';
 import styles from './styles.module.css'
 
+export const metadata= {
+    title:{absolute: 'Meals'},
+    description: 'Meals page'
+}
+
 const MilPage = () => {
     return (
         <div className='p-12 text-center'>

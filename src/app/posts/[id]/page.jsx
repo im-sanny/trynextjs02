@@ -6,10 +6,24 @@ const getDetailsPost = async (id) => {
   return data;
 };
 
+export const generateMetadata = async ({ params }) => {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${params.id}`
+  );
+  const postData = await res.json();
+  return {
+    title: {
+      absolute: ` ${postData.title}`,
+    },
+    description: postData.body,
+    keywords: postData.body.split(" "),
+  };
+};
+
 const PostDetailsPage = async ({ params }) => {
   const { title, body } = await getDetailsPost(params.id);
   return (
-    <div>
+    <div className="h-screen">
       <h4>Title: {title}</h4>
       <p>Description: {body}</p>
     </div>
