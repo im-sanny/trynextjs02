@@ -1,8 +1,9 @@
-import { Inter } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ weight: ["400", "500", "700" , '900'], subsets: ["latin"] });
 
 export const metadata = {
   title: {
@@ -15,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <Navbar></Navbar>
         {children}
         <div className="bg-teal-500 p-3">Footer</div>
