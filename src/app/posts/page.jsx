@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import React from "react";
 
 const getPosts = async () =>{
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
   const data = await res.json();
   // if (data) {
   //   redirect(`/posts/${data[0].id}`)
@@ -14,7 +14,7 @@ const getPosts = async () =>{
 
 const PostPage = async () => {
   const postData = await getPosts();
-  console.log(postData);
+  // console.log(postData);
   return (
     <div className="">
       All posts
